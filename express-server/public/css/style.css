@@ -1,3 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+}
+
 body{
-    background-color: red;
+    font-family: sans-serif;
+    height: 500px;
+    
+}
+
+.header{
+    background-color: rgb(14, 14, 14);
+    background-image: url(images/capa.png);
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    padding: 45px 0;
+    font-size: 15px;
+}
+
+.header h1{
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 200px;
+    height: auto;
+    margin: auto;
+    
+}
+
+.navBar ul {
+    list-style: none;  
+  }
+
+.navBar ul li{
+  border-radius: 10px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  margin-bottom: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.avatar{
+    width: 80px;
+    padding: 3px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 10px white;
+
+}
+
+.container{
+    display: flex;
+    min-height: 65vh;
+}
+
+.navBar{
+    width: 30%;
+    padding: 30px;
+    background: #a3a3a3;
+}
+
+.botao{
+    color: white;
+}
+
+.content{
+    width: 70%;
+    padding: 30px;
+    background: #d8d8d8;
+}
+
+.footer{
+    background-color: grey;
+    text-align: center;
+    margin-top: auto;
+    padding: 5px 0;
+}
+
+.imgQuemSomos{
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+
+.contentQuemSomos h1{
+    text-align: center;
+    margin: 10px 10px;
 }

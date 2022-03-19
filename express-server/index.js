@@ -23,11 +23,29 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //Rotas
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', {
+        title: 'Iphones Roo - Home'
+    })
 })
 
 app.get('/posts', (req, res) => {
-    res.render('posts')
+    res.render('posts', {
+        title: 'Iphones Roo - Posts',
+        posts: [
+            {
+                title: 'Novidade no mundo da tecnologia',
+                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.'
+            },
+            {
+                title: 'Criando um Servidor com NodeJS',
+                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.'
+            },
+            {
+                title: 'Javascript é a linguagem mais usada no mundo',
+                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.'
+            }
+        ]
+    })
 })
 
 

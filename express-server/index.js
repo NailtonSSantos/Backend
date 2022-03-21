@@ -1,10 +1,6 @@
 const express = require ('express')
-const res = require('express/lib/response')
 const app = express()
 const path = require('path')
-const fs = require('fs')
-
-
 
 
 
@@ -23,9 +19,6 @@ o MIDDLEWARE app.use recebe a constante express.static, que por sua vez recebe o
 //Definindo os arquivos públicos
 app.use(express.static(path.join(__dirname, 'public')))
 
-//Habillita o server para receber os dados via post (formulário)
-app.use(express.urlencoded({ extended: true}))
-
 
 
 //Rotas
@@ -41,8 +34,7 @@ app.get('/posts', (req, res) => {
         posts: [
             {
                 title: 'Novidade no mundo da tecnologia',
-                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.',
-                stars: 3
+                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.'
             },
             {
                 title: 'Criando um Servidor com NodeJS',
@@ -50,41 +42,11 @@ app.get('/posts', (req, res) => {
             },
             {
                 title: 'Javascript é a linguagem mais usada no mundo',
-                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.',
-                stars: 5
+                text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit error ratione fugiat commodi adipisci nam inventore necessitatibus iste, sint asperiores, corporis maxime quis itaque cum at alias, illum doloremque praesentium.'
             }
         ]
     })
 })
-
-
-
-app.get('/cadastro-posts', (req, res) => {
-    const { c } = (req.query)
-    res.render('cadastro-posts', {
-        title: 'Iphones Roo - Cadastrar Posts',
-        cadastrado: c,
-    })
-})
-
-app.post('/salvar-post', (req, res) => {
-    const {titulo, texto} = req.body
-
-    const data = fs.readFileSync('./store/posts.json')
-    const posts = JSON.parse(data)
-
-    posts.push({
-        titulo,
-        texto,
-    })
-
-    const postsString = JSON.stringify(posts)
-    fs.writeFileSync('./store/posts.json', postsString)
-
-
-    res.redirect('/cadastro-posts?c=1')
-})
-
 
 
 
